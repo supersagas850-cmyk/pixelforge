@@ -2,209 +2,432 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta name="google-site-verification" content="2X_JcCvMuLkhWhqL1LLuzg-oGIwUPjlbSxaOBsIfTOQ" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelForge | Gaming Tools</title>
+
+<title>PixelForge — Free Gaming Tools</title>
+<meta name="description" content="Free gaming tools for FPS players. Convert sensitivity, calculate aspect ratios and frame times, and optimize your gaming setup.">
+
+ <meta name="google-site-verification" content="2X_JcCvMuLkhWhqL1LLuzg-oGIwUPjlbSxaOBsIfTOQ" />
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: #0c0b12;
   color: #f5f3ff;
   font-family: Arial, sans-serif;
 }
+
 header {
-  background: #111827;
-  padding: 22px 8%;
-  font-size: 22px;
+  background: #17151f;
+  padding: 22px 6%;
+  border-bottom: 1px solid #302c3d;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: #a78bfa;
+}
+
+.pill {
+  color: #ddd6fe;
+  border: 1px solid #51466a;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 55px 24px 35px;
+}
+
+.eyebrow {
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
   font-weight: bold;
 }
-header span { color: #a78bfa; }
-.hero {
-  padding: 60px 8% 35px;
+
+h1 {
+  font-size: clamp(38px, 7vw, 68px);
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin: 15px 0;
 }
-.hero h1 {
-  font-size: clamp(40px, 7vw, 75px);
-  line-height: 1.1;
+
+.highlight {
+  color: #a78bfa;
 }
-.hero h1 span { color: #7c3aed; }
-.hero p { color: #b9b2ca; line-height: 1.7; }
-main { padding: 20px 8% 60px; }
+
+.hero p {
+  color: #b9b2ca;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 24px 60px;
+}
+
+.tools-head {
+  margin: 15px 0 25px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  color: #a7a0b7;
+  font-size: 14px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
+
 .tool {
   background: #17151f;
   border: 1px solid #302c3d;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 22px;
 }
-.tool h3 { margin-top: 0; }
-.tool p { color: #aaa2bb; line-height: 1.5; }
+
+.tool h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.tool p {
+  color: #a7a0b7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 label {
   display: block;
+  font-size: 13px;
+  font-weight: bold;
   margin: 12px 0 6px;
-  font-size: 14px;
 }
+
 input, select {
   width: 100%;
   padding: 12px;
-  background: #100f17;
   border: 1px solid #40394f;
-  border-radius: 8px;
-  color: white;
+  border-radius: 10px;
+  background: #100f17;
+  color: #f5f3ff;
+  font-size: 15px;
 }
+
 button {
-  margin-top: 12px;
-  padding: 12px 16px;
   background: #7c3aed;
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  width: 100%;
 }
-button:hover { background: #6d28d9; }
+
+button:hover {
+  background: #6d28d9;
+}
+
 .result {
   margin-top: 14px;
-  padding: 12px;
+  padding: 13px;
   background: #272033;
-  border-radius: 8px;
-  color: #ddd6fe;
+  border-radius: 10px;
   font-weight: bold;
+  min-height: 45px;
+  color: #ddd6fe;
+  overflow-wrap: anywhere;
 }
+
+.full {
+  grid-column: 1 / -1;
+}
+
 footer {
-  padding: 25px;
   text-align: center;
-  color: #aaa2bb;
+  padding: 25px;
+  color: #a7a0b7;
+  font-size: 13px;
+  border-top: 1px solid #302c3d;
 }
-@media(max-width:650px) {
-  .grid { grid-template-columns: 1fr; }
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .pill {
+    display: none;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<header>PIXEL<span>FORGE</span></header>
+<header>
+  <div class="nav">
+    <div class="logo">PIXEL<span>FORGE</span></div>
+    <div class="pill">FREE GAMING UTILITIES</div>
+  </div>
+</header>
 
 <section class="hero">
-<p>FREE GAMING UTILITIES</p>
-<h1>Your gaming setup,<br><span>optimized.</span></h1>
-<p>Handy calculators and tools for gamers. Free, fast, and built to help you get straight to the good part.</p>
+  <div class="eyebrow">Less guesswork. More game.</div>
+  <h1>Your gaming setup,<br><span class="highlight">optimized.</span></h1>
+  <p>Handy little calculators and tools for gamers. Free, fast, and built to help you get straight to the good part.</p>
 </section>
 
 <main>
-<h2>🛠️ Gaming Toolbox</h2>
-<p>Choose a tool and try it out.</p>
+
+<div class="tools-head">
+  <h2>Toolbox</h2>
+  <div class="sub">⚡ 100% free • No sign-up</div>
+</div>
 
 <div class="grid">
 
+<!-- SENSITIVITY CONVERTER -->
 <section class="tool">
-<h3>🎯 Sensitivity Converter</h3>
-<p>Convert your mouse sensitivity.</p>
-<label>Current sensitivity</label>
-<input id="sens" type="number" value="0.5">
-<label>Conversion multiplier</label>
-<input id="mult" type="number" value="2">
-<button onclick="convertSens()">Convert</button>
-<div class="result" id="sensout">Result appears here</div>
+  <h3>🎯 Sensitivity Converter</h3>
+  <p>Convert your mouse sensitivity between popular FPS games.</p>
+
+  <<label for="sens">Your current sensitivity</label>
+  <input id="sens" type="number" min="0" step="any" value="0.5">
+
+  <label for="fromgame">Your current game</label>
+  <select id="fromgame">
+    <option value="valorant">Valorant</option>
+    <option value="cs2">Counter-Strike 2</option>
+    <option value="overwatch">Overwatch 2</option>
+    <option value="apex">Apex Legends</option>
+    <option value="fortnite">Fortnite</option>
+    <option value="rainbow6">Rainbow Six Siege</option>
+  </select>
+
+  <label for="togame">Convert to</label>
+  <select id="togame">
+    <option value="cs2">Counter-Strike 2</option>
+    <option value="valorant">Valorant</option>
+    <option value="overwatch">Overwatch 2</option>
+    <option value="apex">Apex Legends</option>
+    <option value="fortnite">Fortnite</option>
+    <option value="rainbow6">Rainbow Six Siege</option>
+  </select>
+
+  <button onclick="convertSens()">Convert sensitivity</button>
+
+  <div class="result" id="sensout" aria-live="polite">
+    Your converted sensitivity appears here
+  </div>
+
+  <p><small>Approximate conversion only. FOV, ADS and game settings can affect the feel. Always test in-game.</small></p>
 </section>
 
+<!-- RESOLUTION CALCULATOR -->
 <section class="tool">
-<h3>🖥️ Aspect Ratio Calculator</h3>
-<p>Calculate your display's aspect ratio.</p>
-<label>Width</label>
-<input id="width" type="number" value="1920">
-<label>Height</label>
-<input id="height" type="number" value="1080">
-<button onclick="aspect()">Calculate</button>
-<div class="result" id="aspectout">Example: 16:9</div>
+  <h3>🖥️ Resolution & Aspect Ratio</h3>
+  <p>Find the aspect ratio of your display resolution.</p>
+
+  <label for="width">Width (px)</label>
+  <input id="width" type="number" min="1" value="1920">
+
+  <label for="height">Height (px)</label>
+  <input id="height" type="number" min="1" value="1080">
+
+  <button onclick="aspect()">Calculate aspect ratio</button>
+
+  <div class="result" id="aspectout" aria-live="polite">
+    Example: 16:9
+  </div>
 </section>
 
+<!-- POLLING RATE -->
 <section class="tool">
-<h3>⌨️ Polling Rate Calculator</h3>
-<p>Calculate your mouse or keyboard report interval.</p>
-<label>Polling rate</label>
-<select id="rate">
-<option>125</option>
-<option>250</option>
-<option>500</option>
-<option selected>1000</option>
-<option>2000</option>
-<option>4000</option>
-<option>8000</option>
-</select>
-<button onclick="poll()">Calculate</button>
-<div class="result" id="pollout">Example: 1 ms</div>
+  <h3>⌨️ Keyboard Polling Rate</h3>
+  <p>Calculate the interval between reports at a polling rate.</p>
+
+  <label for="rate">Polling rate (Hz)</label>
+  <select id="rate">
+    <option>125</option>
+    <option>250</option>
+    <option>500</option>
+    <option selected>1000</option>
+    <option>2000</option>
+    <option>4000</option>
+    <option>8000</option>
+  </select>
+
+  <button onclick="poll()">Calculate interval</button>
+
+  <div class="result" id="pollout" aria-live="polite">
+    Example: 1 ms at 1000 Hz
+  </div>
 </section>
 
+<!-- RANDOM GAME PICKER -->
 <section class="tool">
-<h3>🎮 Random Game Picker</h3>
-<p>Can't decide what to play?</p>
-<label>Your games (comma separated)</label>
-<input id="games" value="Minecraft, Valorant, Roblox, FC 26">
-<button onclick="pick()">Pick a game</button>
-<div class="result" id="pickout">Your game appears here</div>
+  <h3>🎮 Random Game Picker</h3>
+  <p>Can't decide what to play? Let the wheel of destiny choose.</p>
+
+  <label for="games">Your games (separate with commas)</label>
+  <input id="games" value="Minecraft, Valorant, Roblox, FC 26, Cyberpunk 2077">
+
+  <button onclick="pick()">Pick my next game</button>
+
+  <div class="result" id="pickout" aria-live="polite">
+    Your next game will appear here
+  </div>
 </section>
 
-<section class="tool">
-<h3>📐 FPS Frame Time Calculator</h3>
-<p>Convert FPS into milliseconds per frame.</p>
-<label>FPS</label>
-<input id="fps" type="number" value="144">
-<button onclick="frame()">Calculate</button>
-<div class="result" id="frameout">144 FPS = 6.94 ms</div>
+<!-- FPS CONVERTER -->
+<section class="tool full">
+  <h3>📐 FPS / Frame Time Converter</h3>
+  <p>Convert frames per second into the time each frame takes.</p>
+
+  <label for="fps">FPS</label>
+  <input id="fps" type="number" min="1" value="144">
+
+  <button onclick="frame()">Calculate frame time</button>
+
+  <div class="result" id="frameout" aria-live="polite">
+    144 FPS ≈ 6.94 ms per frame
+  </div>
 </section>
 
 </div>
 </main>
 
-<footer>PIXELFORGE • Made for gamers • Keep it GG ✦</footer>
+<footer>
+  PIXELFORGE • Made for the gaming community • Keep it GG ✦
+</footer>
 
 <script>
+
+// Approximate sensitivity conversion factors.
+// Results vary with game settings, FOV, and ADS sensitivity.
+const sensFactors = {
+  valorant: 0.07,
+  cs2: 0.022,
+  overwatch: 0.0066,
+  apex: 0.022,
+  fortnite: 0.0055555556,
+  rainbow6: 0.005
+};
+
 function convertSens() {
-  let a = Number(document.getElementById("sens").value);
-  let b = Number(document.getElementById("mult").value);
-  document.getElementById("sensout").textContent =
-    "Converted sensitivity: " + (a * b);
+  const sens = Number(document.getElementById("sens").value);
+  const from = document.getElementById("fromgame").value;
+  const to = document.getElementById("togame").value;
+  const output = document.getElementById("sensout");
+
+  if (document.getElementById("sens").value === "" ||
+      !Number.isFinite(sens) || sens < 0) {
+    output.textContent = "Please enter a valid sensitivity.";
+    return;
+  }
+
+  if (from === to) {
+    output.textContent = "Your sensitivity is already " + sens;
+    return;
+  }
+
+  const converted = sens * sensFactors[from] / sensFactors[to];
+
+  output.textContent =
+    "Approx. converted sensitivity: " +
+    Number(converted.toFixed(6)) +
+    " — test it in-game for the best feel.";
 }
 
+// Greatest common divisor
 function gcd(a, b) {
   return b ? gcd(b, a % b) : a;
 }
 
+// Aspect ratio calculator
 function aspect() {
-  let w = Number(document.getElementById("width").value);
-  let h = Number(document.getElementById("height").value);
+  const w = Number(document.getElementById("width").value);
+  const h = Number(document.getElementById("height").value);
+  const output = document.getElementById("aspectout");
+
   if (w > 0 && h > 0) {
-    let g = gcd(w, h);
-    document.getElementById("aspectout").textContent =
-      "Aspect ratio: " + w/g + ":" + h/g;
+    const g = gcd(w, h);
+    output.textContent =
+      "Aspect ratio: " + w / g + ":" + h / g +
+      " (" + (w / h).toFixed(3) + ":1)";
   } else {
-    document.getElementById("aspectout").textContent =
-      "Enter valid dimensions.";
+    output.textContent = "Please enter positive dimensions.";
   }
 }
 
+// Polling rate calculator
 function poll() {
-  let r = Number(document.getElementById("rate").value);
+  const rate = Number(document.getElementById("rate").value);
+
   document.getElementById("pollout").textContent =
-    "Interval: " + (1000/r) + " ms";
+    "Approx. interval: " + (1000 / rate).toFixed(3) +
+    " ms per report";
 }
 
+// Random game picker
 function pick() {
-  let games = document.getElementById("games").value
-    .split(",").map(x => x.trim()).filter(Boolean);
+  const games = document.getElementById("games").value
+    .split(",")
+    .map(game => game.trim())
+    .filter(Boolean);
+
   document.getElementById("pickout").textContent =
-    games.length ? "Play: " + games[Math.floor(Math.random()*games.length)] : "Add games first!";
+    games.length
+      ? "Tonight: " + games[Math.floor(Math.random() * games.length)]
+      : "Add some games first!";
 }
 
+// FPS to frame-time converter
 function frame() {
-  let f = Number(document.getElementById("fps").value);
-  document.getElementById("frameout").textContent =
-    f > 0 ? "Frame time: " + (1000/f).toFixed(2) + " ms" : "Enter valid FPS.";
+  const fps = Number(document.getElementById("fps").value);
+  const output = document.getElementById("frameout");
+
+  output.textContent =
+    fps > 0
+      ? "Frame time: " + (1000 / fps).toFixed(2) + " ms"
+      : "Please enter FPS above 0.";
 }
 </script>
 

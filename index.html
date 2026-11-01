@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelForge | Gaming Tools</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #0c0b12;
+  color: #f5f3ff;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #111827;
+  padding: 22px 8%;
+  font-size: 22px;
+  font-weight: bold;
+}
+header span { color: #a78bfa; }
+.hero {
+  padding: 60px 8% 35px;
+}
+.hero h1 {
+  font-size: clamp(40px, 7vw, 75px);
+  line-height: 1.1;
+}
+.hero h1 span { color: #7c3aed; }
+.hero p { color: #b9b2ca; line-height: 1.7; }
+main { padding: 20px 8% 60px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.tool {
+  background: #17151f;
+  border: 1px solid #302c3d;
+  border-radius: 16px;
+  padding: 22px;
+}
+.tool h3 { margin-top: 0; }
+.tool p { color: #aaa2bb; line-height: 1.5; }
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 14px;
+}
+input, select {
+  width: 100%;
+  padding: 12px;
+  background: #100f17;
+  border: 1px solid #40394f;
+  border-radius: 8px;
+  color: white;
+}
+button {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover { background: #6d28d9; }
+.result {
+  margin-top: 14px;
+  padding: 12px;
+  background: #272033;
+  border-radius: 8px;
+  color: #ddd6fe;
+  font-weight: bold;
+}
+footer {
+  padding: 25px;
+  text-align: center;
+  color: #aaa2bb;
+}
+@media(max-width:650px) {
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>PIXEL<span>FORGE</span></header>
+
+<section class="hero">
+<p>FREE GAMING UTILITIES</p>
+<h1>Your gaming setup,<br><span>optimized.</span></h1>
+<p>Handy calculators and tools for gamers. Free, fast, and built to help you get straight to the good part.</p>
+</section>
+
+<main>
+<h2>🛠️ Gaming Toolbox</h2>
+<p>Choose a tool and try it out.</p>
+
+<div class="grid">
+
+<section class="tool">
+<h3>🎯 Sensitivity Converter</h3>
+<p>Convert your mouse sensitivity.</p>
+<label>Current sensitivity</label>
+<input id="sens" type="number" value="0.5">
+<label>Conversion multiplier</label>
+<input id="mult" type="number" value="2">
+<button onclick="convertSens()">Convert</button>
+<div class="result" id="sensout">Result appears here</div>
+</section>
+
+<section class="tool">
+<h3>🖥️ Aspect Ratio Calculator</h3>
+<p>Calculate your display's aspect ratio.</p>
+<label>Width</label>
+<input id="width" type="number" value="1920">
+<label>Height</label>
+<input id="height" type="number" value="1080">
+<button onclick="aspect()">Calculate</button>
+<div class="result" id="aspectout">Example: 16:9</div>
+</section>
+
+<section class="tool">
+<h3>⌨️ Polling Rate Calculator</h3>
+<p>Calculate your mouse or keyboard report interval.</p>
+<label>Polling rate</label>
+<select id="rate">
+<option>125</option>
+<option>250</option>
+<option>500</option>
+<option selected>1000</option>
+<option>2000</option>
+<option>4000</option>
+<option>8000</option>
+</select>
+<button onclick="poll()">Calculate</button>
+<div class="result" id="pollout">Example: 1 ms</div>
+</section>
+
+<section class="tool">
+<h3>🎮 Random Game Picker</h3>
+<p>Can't decide what to play?</p>
+<label>Your games (comma separated)</label>
+<input id="games" value="Minecraft, Valorant, Roblox, FC 26">
+<button onclick="pick()">Pick a game</button>
+<div class="result" id="pickout">Your game appears here</div>
+</section>
+
+<section class="tool">
+<h3>📐 FPS Frame Time Calculator</h3>
+<p>Convert FPS into milliseconds per frame.</p>
+<label>FPS</label>
+<input id="fps" type="number" value="144">
+<button onclick="frame()">Calculate</button>
+<div class="result" id="frameout">144 FPS = 6.94 ms</div>
+</section>
+
+</div>
+</main>
+
+<footer>PIXELFORGE • Made for gamers • Keep it GG ✦</footer>
+
+<script>
+function convertSens() {
+  let a = Number(document.getElementById("sens").value);
+  let b = Number(document.getElementById("mult").value);
+  document.getElementById("sensout").textContent =
+    "Converted sensitivity: " + (a * b);
+}
+
+function gcd(a, b) {
+  return b ? gcd(b, a % b) : a;
+}
+
+function aspect() {
+  let w = Number(document.getElementById("width").value);
+  let h = Number(document.getElementById("height").value);
+  if (w > 0 && h > 0) {
+    let g = gcd(w, h);
+    document.getElementById("aspectout").textContent =
+      "Aspect ratio: " + w/g + ":" + h/g;
+  } else {
+    document.getElementById("aspectout").textContent =
+      "Enter valid dimensions.";
+  }
+}
+
+function poll() {
+  let r = Number(document.getElementById("rate").value);
+  document.getElementById("pollout").textContent =
+    "Interval: " + (1000/r) + " ms";
+}
+
+function pick() {
+  let games = document.getElementById("games").value
+    .split(",").map(x => x.trim()).filter(Boolean);
+  document.getElementById("pickout").textContent =
+    games.length ? "Play: " + games[Math.floor(Math.random()*games.length)] : "Add games first!";
+}
+
+function frame() {
+  let f = Number(document.getElementById("fps").value);
+  document.getElementById("frameout").textContent =
+    f > 0 ? "Frame time: " + (1000/f).toFixed(2) + " ms" : "Enter valid FPS.";
+}
+</script>
+
+</body>
+</html>

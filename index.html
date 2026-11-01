@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PixelForge — Free Gaming Tools</title>
-<meta name="description" content="Free gaming tools for FPS players. Convert sensitivity, calculate aspect ratios and frame times, and optimize your gaming setup.">
+<meta name="description" content="Free gaming tools for FPS players. Convert sensitivity between Valorant, CS2, Apex Legends, Overwatch 2, Fortnite and more.">
 
- <meta name="google-site-verification" content="2X_JcCvMuLkhWhqL1LLuzg-oGIwUPjlbSxaOBsIfTOQ" />
+<meta name="google-site-verification" content="2X_JcCvMuLkhWhqL1LLuzg-oGIwUPjlbSxaOBsIfTOQ" />
 
 <style>
 * {
@@ -228,7 +228,7 @@ footer {
   <h3>🎯 Sensitivity Converter</h3>
   <p>Convert your mouse sensitivity between popular FPS games.</p>
 
-  <<label for="sens">Your current sensitivity</label>
+  <label for="sens">Your current sensitivity</label>
   <input id="sens" type="number" min="0" step="any" value="0.5">
 
   <label for="fromgame">Your current game</label>
@@ -254,10 +254,10 @@ footer {
   <button onclick="convertSens()">Convert sensitivity</button>
 
   <div class="result" id="sensout" aria-live="polite">
-    Your converted sensitivity appears here
+    Your converted value appears here
   </div>
 
-  <p><small>Approximate conversion only. FOV, ADS and game settings can affect the feel. Always test in-game.</small></p>
+  <p><small>Approximate conversion only. FOV, ADS and game settings may affect the feel.</small></p>
 </section>
 
 <!-- RESOLUTION CALCULATOR -->
@@ -341,7 +341,7 @@ footer {
 <script>
 
 // Approximate sensitivity conversion factors.
-// Results vary with game settings, FOV, and ADS sensitivity.
+// Not exact across different FOV, ADS, and game settings.
 const sensFactors = {
   valorant: 0.07,
   cs2: 0.022,
@@ -352,13 +352,13 @@ const sensFactors = {
 };
 
 function convertSens() {
-  const sens = Number(document.getElementById("sens").value);
+  const input = document.getElementById("sens");
+  const sens = Number(input.value);
   const from = document.getElementById("fromgame").value;
   const to = document.getElementById("togame").value;
   const output = document.getElementById("sensout");
 
-  if (document.getElementById("sens").value === "" ||
-      !Number.isFinite(sens) || sens < 0) {
+  if (input.value === "" || !Number.isFinite(sens) || sens < 0) {
     output.textContent = "Please enter a valid sensitivity.";
     return;
   }
